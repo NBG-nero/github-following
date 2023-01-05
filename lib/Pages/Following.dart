@@ -23,7 +23,7 @@ class _FollowingPageState extends State<FollowingPage> {
       user = Provider.of<UserProvider>(context).getUser();
 
       Github(user.login).fetchFollowing().then((following) {
-        Iterable list = json.decode(following.body);
+      dynamic list = json.decode(following.body);
         setState(() {
           users = list.map((e) => User.fromJson(e)).toList();
         });
